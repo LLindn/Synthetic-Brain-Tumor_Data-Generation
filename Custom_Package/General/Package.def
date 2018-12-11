@@ -1,0 +1,12 @@
+
+Package {
+  packageGroup = "CostumeModules"
+  packageName  = "General"
+
+  owner = "LL"
+  description = ""
+  
+  // This option determines if changed internal networks can simply be safed.
+  // The possible values are "allow", "warn", and "refuse"
+  allowSaveOfInternalNetworks = allow
+}

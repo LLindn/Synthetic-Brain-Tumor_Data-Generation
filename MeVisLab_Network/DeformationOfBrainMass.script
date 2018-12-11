@@ -1,0 +1,20 @@
+Interface  {
+  Inputs  {
+    Field input0 {
+      internalName = VoxelizeTumor.input0
+    }
+    Field input0 {
+      internalName = ImageWarp.input0
+    }
+  }
+  Outputs  {
+    Field output0 {
+      internalName = ImageWarp.output0
+    }
+  }
+  Parameters  {
+    Field SoTranslation2_translation {
+      internalName = SoTranslation.translation
+    }
+  }
+}

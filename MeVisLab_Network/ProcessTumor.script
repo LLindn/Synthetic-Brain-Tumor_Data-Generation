@@ -1,0 +1,29 @@
+Interface  {
+  Inputs  {
+    Field input0 {
+      internalName = Multiply.input0
+    }
+    Field input0 {
+      internalName = Multiply2.input0
+    }
+    Field nodeIn0 {
+      internalName = SoSeparator1.child
+    }
+    Field input1 {
+      internalName = VoxelizeInventorScene.input0
+    }
+  }
+  Outputs  {
+    Field output0 {
+      internalName = AddMRIAndTumor.output0
+    }
+    Field output1 {
+      internalName = ConvertGroundTruthToGray.output0
+    }
+  }
+  Parameters  {
+    Field SoTranslation_translation {
+      internalName = SoTranslation.translation
+    }
+  }
+}

@@ -1,0 +1,48 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module OrthoReformat3 {
+  internal  {
+    frame = "173 889 120 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "831 437 272 266"
+        sizeHint = "272 266"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = OrthoReformat3
+    useGlobalInputImage = FALSE
+  }
+}
+module Scale {
+  internal  {
+    frame = "137 757 160 72"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "825 374 285 393"
+        sizeHint = "285 393"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Scale
+    inputMin = 0
+    inputMax = 1701
+    updateMode = AutoUpdateMinMaxOn
+    useTrueRange = TRUE
+    typeSelect = Int16
+    outputMin = 0
+    outputMax = 2400
+  }
+}
+connections  {
+  Scale.input0 = OrthoReformat3.output2
+}
+networkModel = ""

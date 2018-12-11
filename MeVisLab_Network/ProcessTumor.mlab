@@ -1,0 +1,623 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module cvGaussianBlur {
+  internal  {
+    frame = "1306 80 128 56"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "126 442 201 212"
+        sizeHint = "201 212"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = cvGaussianBlur1
+    kernelSizeX = 5
+    kernelSizeY = 5
+    sigmaX = 3
+    sigmaY = 1
+  }
+}
+module Morphology {
+  internal  {
+    frame = "1514 548 96 64"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "956 320 297 497"
+        sizeHint = "297 497"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Dilation2
+    borderHandling = PadSrcClamp
+    fillValue = 0
+    referenceExtentMode = Overlap
+    filterMode = Dilation
+    kernelX = 2
+    kernelY = 2
+    kernelZ = 2
+    kernelC = 1
+    kernelT = 1
+    kernelU = 1
+    makeSpherical = TRUE
+    intervalMinOfFilteredVoxels = 0
+    intervalMaxOfFilteredVoxels = 1024
+    useIntervalOfFilteredVoxels = FALSE
+    intervalMinOfVoxelsForFiltering = 0
+    intervalMaxOfVoxelsForFiltering = 1024
+    useIntervalOfVoxelsForFiltering = FALSE
+    externalKernel = ""
+    useExternalKernel = FALSE
+  }
+}
+module Morphology {
+  internal  {
+    frame = "1090 316 96 64"
+    moduleGroupName = CreateGroundTruth
+    windows  {
+      window _default {
+        geometry = "1183 375 297 497"
+        sizeHint = "297 497"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Erosion
+    borderHandling = PadSrcClamp
+    fillValue = 0
+    referenceExtentMode = Overlap
+    filterMode = Erosion
+    kernelX = 5
+    kernelY = 5
+    kernelZ = 2
+    kernelC = 1
+    kernelT = 1
+    kernelU = 1
+    makeSpherical = TRUE
+    intervalMinOfFilteredVoxels = 0
+    intervalMaxOfFilteredVoxels = 1024
+    useIntervalOfFilteredVoxels = FALSE
+    intervalMinOfVoxelsForFiltering = 0
+    intervalMaxOfVoxelsForFiltering = 1024
+    useIntervalOfVoxelsForFiltering = FALSE
+    externalKernel = ""
+    useExternalKernel = FALSE
+  }
+}
+module cvGaussianBlur {
+  internal  {
+    frame = "1434 8 128 56"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "1139 216 201 212"
+        sizeHint = "201 212"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = cvGaussianBlur3
+    kernelSizeX = 3
+    kernelSizeY = 1
+    sigmaX = 2
+    sigmaY = 1
+  }
+}
+module Morphology {
+  internal  {
+    frame = "1378 540 96 64"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "1059 330 297 497"
+        sizeHint = "297 497"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Dilation
+    borderHandling = PadSrcClamp
+    fillValue = 0
+    referenceExtentMode = Overlap
+    filterMode = Dilation
+    kernelX = 4
+    kernelY = 5
+    kernelZ = 6
+    kernelC = 1
+    kernelT = 1
+    kernelU = 1
+    makeSpherical = TRUE
+    intervalMinOfFilteredVoxels = 0
+    intervalMaxOfFilteredVoxels = 1024
+    useIntervalOfFilteredVoxels = FALSE
+    intervalMinOfVoxelsForFiltering = 0
+    intervalMaxOfVoxelsForFiltering = 1024
+    useIntervalOfVoxelsForFiltering = FALSE
+    externalKernel = ""
+    useExternalKernel = FALSE
+  }
+}
+module cvGaussianBlur {
+  internal  {
+    frame = "1322 336 128 56"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "126 442 201 212"
+        sizeHint = "201 212"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = cvGaussianBlur2
+    kernelSizeX = 3
+    kernelSizeY = 3
+    sigmaX = 2
+    sigmaY = 1
+  }
+}
+module SoTranslation {
+  internal  {
+    frame = "986 680 112 56"
+    moduleGroupName = TranslateTumor
+    windows  {
+      window _default {
+        geometry = "597 310 271 34"
+        sizeHint = "271 34"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoTranslation
+    translation = "32.8904113769531 -1.72706604003906 38.8039932250977"
+  }
+}
+module Arithmetic2 {
+  internal  {
+    frame = "1370 -76 96 64"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "749 845 446 109"
+        sizeHint = "446 109"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Multiply3
+    function = Multiply
+    outputImageSize = AdaptOutputImageSize
+    constant = 0
+    autoReplicate = FALSE
+  }
+}
+module AddNoise {
+  internal  {
+    frame = "1454 80 88 56"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "505 596 388 215"
+        sizeHint = "353 215"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AddNoise
+    amplitude = 110
+    addInput = TRUE
+    randSeed = -1
+    noiseType = Gaussian
+    mean = 100
+    sigma = 20
+    sigmaIn = 0
+    sigmaOut = 0
+    amplitude2 = 100
+    density = 0.050000001
+  }
+}
+module cvGaussianBlur {
+  internal  {
+    frame = "1074 16 128 56"
+    moduleGroupName = CutOutBrainArea
+    windows  {
+      window _default {
+        geometry = "126 442 201 212"
+        sizeHint = "201 212"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = cvGaussianBlur4
+    kernelSizeX = 5
+    kernelSizeY = 5
+    sigmaX = 3
+    sigmaY = 1
+  }
+}
+module Arithmetic1 {
+  internal  {
+    frame = "1313 249 144 64"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "550 663 362 74"
+        sizeHint = "359 74"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AdjustTumorTexture
+    function = Multiply
+    constant = 0.2
+  }
+}
+module Arithmetic2 {
+  internal  {
+    frame = "1246 -260 136 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "749 845 446 109"
+        sizeHint = "446 109"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AddMRIAndTumor
+    function = Add
+    outputImageSize = AdaptOutputImageSize
+    constant = 0
+    autoReplicate = FALSE
+  }
+}
+module Arithmetic2 {
+  internal  {
+    frame = "982 -88 104 56"
+    moduleGroupName = CutOutBrainArea
+    windows  {
+      window _default {
+        geometry = "749 845 446 109"
+        sizeHint = "446 109"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Multiply
+    function = Multiply
+    outputImageSize = AdaptOutputImageSize
+    constant = 0
+    autoReplicate = FALSE
+  }
+}
+module Arithmetic1 {
+  internal  {
+    frame = "1110 -92 136 64"
+    moduleGroupName = CutOutBrainArea
+    windows  {
+      window _default {
+        geometry = "790 533 358 74"
+        sizeHint = "355 74"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = InvertGroundTruth
+    function = Invert
+    constant = 0
+  }
+}
+module Arithmetic2 {
+  internal  {
+    frame = "1362 428 96 64"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "749 845 446 109"
+        sizeHint = "446 109"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Multiply2
+    function = Multiply
+    outputImageSize = AdaptOutputImageSize
+    constant = 0
+    autoReplicate = FALSE
+  }
+}
+module IntervalThreshold {
+  internal  {
+    frame = "1058 412 128 64"
+    moduleGroupName = CreateGroundTruth
+    windows  {
+      window _default {
+        geometry = "544 490 403 380"
+        sizeHint = "403 380"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GroundTruth
+    lowerType = UserDef
+    innerType = UserDef
+    upperType = UserDef
+    centerWidthSet = FALSE
+    threshCenter = 0.05
+    threshWidth = 0.1
+    threshMin = 0
+    threshMax = 0.1
+    lowerUserValue = 0
+    innerUserValue = 0
+    upperUserValue = 1
+    changeMinMax = FALSE
+    changedMin = 0
+    changedMax = 4095
+  }
+}
+module Arithmetic1 {
+  internal  {
+    frame = "1522 260 144 64"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "550 663 362 74"
+        sizeHint = "359 74"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AdjustTumorIntensity
+    function = Multiply
+    constant = 2000
+  }
+}
+module cvGaussianBlur {
+  internal  {
+    frame = "1526 448 120 56"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "420 284 201 212"
+        sizeHint = "201 212"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = cvGaussianBlur
+    kernelSizeX = 3
+    kernelSizeY = 3
+    sigmaX = 2
+    sigmaY = 2
+  }
+}
+module ColorModelConverter {
+  internal  {
+    frame = "1518 356 152 64"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "834 315 268 525"
+        sizeHint = "268 525"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ConvetToGrayScale
+    directionSelect = "RGB to Gray"
+    automaticConvert = FALSE
+  }
+}
+module SoSeparator {
+  internal  {
+    frame = "1042 592 128 56"
+    moduleGroupName = TranslateTumor
+    windows  {
+      window _viewer {
+        geometry = "892 545 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoSeparator1
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+  }
+}
+module VoxelizeInventorScene {
+  internal  {
+    frame = "1402 664 192 56"
+    moduleGroupName = ModifyTumor
+    showNetworkPanel = true
+    windows  {
+      window _default {
+        geometry = "757 366 409 368"
+        sizeHint = "393 368"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = VoxelizeInventorScene
+    allowCollectPoints = FALSE
+    allowCollectLines = FALSE
+    allowCollectTriangles = TRUE
+    voxelValue = 1
+    lineWidth = 1
+    useAntiAliasing = FALSE
+    copyInputImage = FALSE
+    drawStyleAsScene = FALSE
+    voxelizeFilled = TRUE
+    includeBorderOnFill = TRUE
+    fillColor = "0.176470588235294 0.176470588235294 0.176470588235294"
+    fillAlpha = 1
+    voxelizeSurface = TRUE
+    autoUpdateInvScene = TRUE
+    autoUpdateMLImage = TRUE
+    autoUpdateParameter = TRUE
+    distanceMode = WorldDistance
+    voxelizeColored = TRUE
+    showNumCollectedPrimitives = FALSE
+    useSuperSampling = FALSE
+  }
+}
+module Arithmetic2 {
+  internal  {
+    frame = "1450 156 96 64"
+    moduleGroupName = ModifyTumor
+    windows  {
+      window _default {
+        geometry = "749 845 446 109"
+        sizeHint = "446 109"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AddTexture
+    function = Add
+    outputImageSize = AdaptOutputImageSize
+    constant = 0
+    autoReplicate = FALSE
+  }
+}
+module ColorModelConverter {
+  internal  {
+    frame = "1030 196 184 64"
+    moduleGroupName = CreateGroundTruth
+    windows  {
+      window _default {
+        geometry = "834 315 268 525"
+        sizeHint = "268 525"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ConvertGroundTruthToGray
+    directionSelect = "RGB to Gray"
+    automaticConvert = FALSE
+  }
+}
+module SoScale {
+  internal  {
+    frame = "1125 677 88 56"
+    moduleGroupName = TranslateTumor
+    windows  {
+      window _default {
+        geometry = "798 551 338 39"
+        sizeHint = "338 39"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoScale
+    scaleFactor = "0.150000005960464 0.150000005960464 0.150000005960464"
+  }
+}
+connections  {
+  cvGaussianBlur1.input0 = Erosion.output0
+  Dilation2.input0 = VoxelizeInventorScene.output0
+  Erosion.input0 = GroundTruth.output0
+  cvGaussianBlur3.input0 = AddNoise.output0
+  Dilation.input0 = GroundTruth.output0
+  cvGaussianBlur2.input0 = Multiply2.output0
+  Multiply3.input0 = cvGaussianBlur1.output0
+  Multiply3.input1 = cvGaussianBlur3.output0
+  AddNoise.input0 = AddTexture.output0
+  cvGaussianBlur4.input0 = Erosion.output0
+  AdjustTumorTexture.input0 = cvGaussianBlur2.output0
+  AddMRIAndTumor.input0 = Multiply.output0
+  AddMRIAndTumor.input1 = Multiply3.output0
+  Multiply.input1 = InvertGroundTruth.output0
+  InvertGroundTruth.input0 = cvGaussianBlur4.output0
+  Multiply2.input1 = Dilation.output0
+  GroundTruth.input0 = Dilation2.output0
+  AdjustTumorIntensity.input0 = ConvetToGrayScale.output0
+  cvGaussianBlur.input0 = Dilation2.output0
+  ConvetToGrayScale.input0 = cvGaussianBlur.output0
+  SoSeparator1.children = "SoTranslation.self SoScale.self"
+  VoxelizeInventorScene.inInventorScene = SoSeparator1.self
+  AddTexture.input0 = AdjustTumorTexture.output0
+  AddTexture.input1 = AdjustTumorIntensity.output0
+  ConvertGroundTruthToGray.input0 = Erosion.output0
+}
+networkModel  {
+  parentItems  {
+    0  {
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 63
+        objectName = CutOutBrainArea
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 84
+        objectName = CreateGroundTruth
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 110
+        objectName = TranslateTumor
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 129
+        objectName = ModifyTumor
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+Interface  {
+  Inputs  {
+    Field input0 {
+      internalName = WorldVoxelConvert.input0
+    }
+  }
+  Outputs  {
+    Field nodeOut0 {
+      internalName = SoView2DMarkerEditor.self
+    }
+  }
+  Parameters  {
+    Field WorldVoxelConvert_worldPos {
+      internalName = WorldVoxelConvert.worldPos
+    }
+  }
+}

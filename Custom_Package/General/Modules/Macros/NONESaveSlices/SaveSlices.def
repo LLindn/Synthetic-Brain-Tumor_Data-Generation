@@ -1,0 +1,18 @@
+//----------------------------------------------------------------------------------
+//! SaveSlices module definition
+/*!
+// \file    SaveSlices.def
+// \author  LL
+*/
+//----------------------------------------------------------------------------------
+
+
+MacroModule SaveSlices {
+  genre              = ""
+  author             = "LL"
+  comment            = ""
+  keywords           = ""
+  seeAlso            = ""
+   
+  externalDefinition = "$(LOCAL)/SaveSlices.script"
+}

@@ -1,0 +1,503 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module SaveSlices {
+  internal  {
+    frame = "868 707 96 56"
+    moduleGroupName = "6. SaveImageSlices"
+    windows  {
+      window _default {
+        geometry = "486 494 547 350"
+        sizeHint = "542 350"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SaveSlices
+    filename_patient = ""
+    file_path_patient = ""
+    filename_mask = ""
+    file_path_mask = ""
+    first_slice = 0
+    last_slice = 0
+    every_slice = TRUE
+    export_progress = 1
+    data_type = PNG
+  }
+}
+module GenerateTumor {
+  internal  {
+    frame = "577 1231 120 56"
+    moduleGroupName = "4. Generate Tumor"
+    windows  {
+      window _default {
+        geometry = "48 771 318 116"
+        sizeHint = "318 116"
+        wasOpen = no
+      }
+      window _automatic {
+        geometry = "271 227 500 600"
+        sizeHint = "318 274"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = GenerateTumor
+  }
+}
+module WorldVoxelConvert2 {
+  internal  {
+    frame = "1073 1101 144 56"
+    moduleGroupName = ""
+    localMacro = 1
+    windows  {
+      window _default {
+        geometry = "221 261 500 600"
+        sizeHint = "318 274"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = WorldVoxelConvert2
+    WorldVoxelConvert1_voxelPos = "39.7778167724609 3.31330108642578 41.7336807250977"
+    WorldVoxelConvert1_worldPos = "39.7778167724609 3.31330108642578 41.7336807250977"
+  }
+}
+module WorldVoxelConvert1 {
+  internal  {
+    frame = "657 1013 144 56"
+    moduleGroupName = ""
+    localMacro = 1
+    windows  {
+      window _default {
+        geometry = "52 308 500 600"
+        sizeHint = "318 274"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = WorldVoxelConvert1
+    WorldVoxelConvert_worldPos = "32.8904113769531 -1.72706604003906 38.8039932250977"
+  }
+}
+module ReformatAndAdjustIntensity {
+  internal  {
+    frame = "813 1293 184 56"
+    moduleGroupName = ""
+    localMacro = 1
+    windows  {
+      window _default {
+        geometry = "718 277 500 600"
+        sizeHint = "318 274"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ReformatAndAdjustIntensity
+  }
+}
+module itkImageFileReader {
+  internal  {
+    frame = "844 1446 136 64"
+    moduleGroupName = "1. LoadBrainMRI"
+    windows  {
+      window _default {
+        geometry = "566 451 328 395"
+        sizeHint = "328 395"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = LoadBrainMRI
+    fileDataType = int16
+    autoDetermineDataType = FALSE
+    correctSubVoxelShift = TRUE
+    fileDimension = 3
+    info = "Invalid path"
+    numDims = 0
+    fileType = TypeNotApplicable
+    componentType = ""
+    pixelType = UNKNOWNPIXELTYPE
+    loaderType = ""
+    outputMetaDataStr = ""
+    suppressErrorPosting = FALSE
+    unresolvedFileName = ""
+  }
+}
+module View2D {
+  internal  {
+    frame = "476 989 120 64"
+    moduleGroupName = "2. SetSeedPoint"
+    windows  {
+      window _default {
+        geometry = "12 432 302 291"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SetSeedPoint
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_ZT
+    cineDirection = CINE_FORWARD
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    cineAlwaysReset = TRUE
+    snapToCenter = TRUE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 1
+    lutWidth = 1
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    showColorChannelValues = FALSE
+    colorChannelSeparator = " / "
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = TRUE
+    hiResRendering = TRUE
+  }
+}
+module View2D {
+  internal  {
+    frame = "1279 991 144 64"
+    moduleGroupName = "3. SetSeedPointDeform"
+    windows  {
+      window _default {
+        geometry = "1315 437 296 287"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SetSeedPointDeform
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_ZT
+    cineDirection = CINE_FORWARD
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    cineAlwaysReset = TRUE
+    snapToCenter = TRUE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 1
+    lutWidth = 1
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    showColorChannelValues = FALSE
+    colorChannelSeparator = " / "
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = TRUE
+    hiResRendering = TRUE
+  }
+}
+module Scale {
+  internal  {
+    frame = "813 889 104 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "610 357 313 393"
+        sizeHint = "289 393"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ScalePatient
+    inputMin = 0
+    inputMax = 2400
+    updateMode = AutoUpdateMinMaxOn
+    useTrueRange = TRUE
+    typeSelect = UInt16
+    outputMin = 0
+    outputMax = 65535
+  }
+}
+module Scale {
+  internal  {
+    frame = "929 889 96 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "610 357 313 393"
+        sizeHint = "289 393"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ScaleMask
+    inputMin = 0
+    inputMax = 1
+    updateMode = AutoUpdateMinMaxOn
+    useTrueRange = TRUE
+    typeSelect = UInt16
+    outputMin = 0
+    outputMax = 65535
+  }
+}
+module View2D {
+  internal  {
+    frame = "701 713 120 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "259 74 301 311"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ViewFinalImage
+    inventorInputOn = TRUE
+    inventorOutputOn = FALSE
+    view2DExtensionsOn = TRUE
+    startSlice = 0
+    numSlices = 1
+    numXSlices = 1
+    sliceStep = 1
+    slab = 1
+    blendMode = BLEND_REPLACE
+    timePoint = 0
+    maxTimePoint = 0
+    filterMode = FILTER_LINEAR
+    standardKeys = TRUE
+    cineMode = CINE_ZT
+    cineDirection = CINE_FORWARD
+    cineRepeat = CINE_ONCE
+    cineSpeed = 0.1
+    cineAlwaysReset = TRUE
+    snapToCenter = TRUE
+    zoomMode = VIEW2D_AUTO_ZOOM
+    unzoomOnImageChange = FALSE
+    sliceZoom = 1
+    sliceZoomSynced = 1
+    baseColor = "1 1 1"
+    margin = "2 2"
+    sliceOrigin = "0 0"
+    useShaders = TRUE
+    useManagedInteraction = FALSE
+    lutCenter = 1
+    lutWidth = 1
+    annotationOn = TRUE
+    annotationMode = ANNO_MODE_AUTO
+    annotationSizeMode = ANNO_SHOW_DETAILED
+    annotationCol = "0.899999976158142 0.899999976158142 0.899999976158142"
+    annotationFontSize = ANNO_SIZE_AUTO
+    annoCoords = Voxel
+    annoCTValue = AsIs
+    borderOn = FALSE
+    borderColor = "0.899999976158142 0.899999976158142 0.899999976158142"
+    valueHighPrecision = TRUE
+    showColorChannelValues = FALSE
+    colorChannelSeparator = " / "
+    maxPrecision = 4
+    enableSlicing = TRUE
+    useRelativeLUTIfNoInputImage = TRUE
+    hiResRendering = TRUE
+  }
+}
+module ImageCache {
+  internal  {
+    frame = "826 1162 176 80"
+    moduleGroupName = "5. CreateFinalImage"
+    showNetworkPanel = true
+    windows  {
+      window _default {
+        geometry = "711 301 528 539"
+        sizeHint = "513 539"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = CreateFinalData
+    onInputChangeBehavior = DoNothing
+    inMode = PageCache
+    inFileCache_useAutoFilename = TRUE
+    inFileCache_customFilenameBase = ""
+    inFileCache_preserveCacheFile = FALSE
+  }
+}
+module DeformationOfBrainMass {
+  internal  {
+    frame = "1045 997 168 56"
+    moduleGroupName = ""
+    localMacro = 1
+  }
+  fields  {
+    instanceName = DeformationOfBrainMass
+    SoTranslation2_translation = "39.7778167724609 3.31330108642578 41.7336807250977"
+  }
+}
+module ProcessTumor {
+  internal  {
+    frame = "857 997 112 56"
+    moduleGroupName = ""
+    localMacro = 1
+  }
+  fields  {
+    instanceName = ProcessTumor
+    SoTranslation_translation = "32.8904113769531 -1.72706604003906 38.8039932250977"
+  }
+}
+connections  {
+  SaveSlices.input_patient = ScalePatient.output0
+  SaveSlices.input_mask = ScaleMask.output0
+  GenerateTumor.input0 = ReformatAndAdjustIntensity.output0
+  WorldVoxelConvert2.input0 = ReformatAndAdjustIntensity.output0
+  WorldVoxelConvert1.input0 = ReformatAndAdjustIntensity.output0
+  ReformatAndAdjustIntensity.input0 = LoadBrainMRI.output0
+  SetSeedPoint.inImage = ReformatAndAdjustIntensity.output0
+  SetSeedPoint.inInvPreLUT = WorldVoxelConvert1.nodeOut0
+  SetSeedPointDeform.inImage = ReformatAndAdjustIntensity.output0
+  SetSeedPointDeform.inInvPreLUT = WorldVoxelConvert2.nodeOut0
+  ScalePatient.input0 = ProcessTumor.output0
+  ScaleMask.input0 = ProcessTumor.output1
+  ViewFinalImage.inImage = ScalePatient.output0
+  CreateFinalData.input0 = ReformatAndAdjustIntensity.output0
+  DeformationOfBrainMass.input0 = CreateFinalData.output0
+  DeformationOfBrainMass.SoTranslation2_translation = WorldVoxelConvert2.WorldVoxelConvert1_worldPos
+  ProcessTumor.input0 = DeformationOfBrainMass.output0
+  ProcessTumor.nodeIn0 = GenerateTumor.outputPolyhedron
+  ProcessTumor.input1 = CreateFinalData.output0
+  ProcessTumor.SoTranslation_translation = WorldVoxelConvert1.WorldVoxelConvert_worldPos
+}
+networkModel  {
+  parentItems  {
+    0  {
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 584
+        objectName = "2. SetSeedPoint"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 592
+        objectName = "1. LoadBrainMRI"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 597
+        objectName = "3. SetSeedPointDeform"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 605
+        objectName = "4. Generate Tumor"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 613
+        objectName = "5. CreateFinalImage"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+      MLABNetworkModelItem MLABNetworkModelItemGroup {
+        uniqueId = 622
+        objectName = "6. SaveImageSlices"
+        parentUniqueId = 0
+        color  {
+          r = 45
+          g = 226
+          b = 226
+          a = 40
+        }
+      }
+    }
+  }
+}

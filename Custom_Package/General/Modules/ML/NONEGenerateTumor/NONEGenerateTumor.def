@@ -1,0 +1,19 @@
+//----------------------------------------------------------------------------------
+//! NONEGenerateTumor module definitions.
+/*!
+// \file    NONEGenerateTumor.def
+// \author  LL
+*/
+//----------------------------------------------------------------------------------
+
+
+MLModule GenerateTumor {
+  DLL                = "NONEGenerateTumor"
+
+  genre              = ""
+  author             = "LL"
+  comment            = ""
+  keywords           = ""
+  seeAlso            = ""
+  externalDefinition = $(LOCAL)/GenerateTumor.script
+}  

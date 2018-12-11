@@ -1,0 +1,21 @@
+//----------------------------------------------------------------------------------
+//! NONEGenerateTumor module definitions.
+/*!
+// \file    GenerateTumor.script
+// \author  LL
+*/
+//----------------------------------------------------------------------------------
+
+
+Window {
+  Category {
+    Box "Create Artificial Tumor"
+    {
+      Horizontal 
+      {
+        Field GenerateTumor {
+        }
+      }
+    }
+  }
+}

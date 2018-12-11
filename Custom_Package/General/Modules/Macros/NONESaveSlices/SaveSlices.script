@@ -1,0 +1,145 @@
+//----------------------------------------------------------------------------------
+//! Macro module SaveSlices
+/*!
+// \file    SaveSlices.script
+// \author  LL
+//
+// 
+*/
+//-------------------------------------------------------------------------------
+
+Interface {
+  Inputs {
+    Field input_patient { internalName = InfoPatient.input0 }
+    Field input_patient { internalName = SubImagePatient.input0 }
+    Field input_mask { internalName = InfoMask.input0 }
+    Field input_mask { internalName = SubImageMask.input0 }
+  }
+  
+  Outputs = ""
+  
+  Parameters {
+    Field filename_patient { type = String }
+    Field file_path_patient { type = String }
+    Field filename_mask { type = String }
+    Field file_path_mask { type = String }
+    Field first_slice { type = Integer }
+    Field last_slice { type = Integer }
+    Field every_slice { type = Bool value = True } 
+    Field export_button { type = Trigger }
+    Field export_progress { type = Float }
+    Field trigger_field { type = Trigger }
+    Field data_type { type = Enum
+      Items {
+        item TIFF { title = "TIFF" }
+        item PNG { title = "PNG" }
+      }
+    }
+  }
+}
+
+
+Commands {
+  source = $(LOCAL)/SaveSlices.py
+  FieldListener export_button {command = export_function}
+}
+
+
+Window {
+   TabView {
+    expandY = True
+    TabViewItem Settings {
+      Box "Settings" {
+        Table {
+          margin  = 5
+          spacing = 1
+          Row {
+            Field file_path_patient { 
+              title        = "File Path MRI"
+              browseButton = True 
+              browseMode   = directory
+              colspan      = 1
+            }
+          }
+          Row {
+            Field filename_patient {
+              title   = "File Name MRI"
+              colspan = 1
+            }
+          } 
+          Row {
+            HSeparator {
+              colspan = 1
+            }
+          }
+          Row {
+            Field file_path_mask { 
+              title        = "File Path Mask"
+              browseButton = True 
+              browseMode   = directory
+              colspan      = 1
+            }
+          }
+          Row {
+            Field filename_mask {
+              title   = "File Name Mask"
+              colspan = 1
+            }
+          }
+        }
+        
+        HSeparator {}
+        
+        Table {
+          margin  = 2
+          spacing = 5
+          Row {
+            Label {
+              title   = Slices
+              colspan = 1
+              alignX  = Left
+            }
+            Field first_slice {
+              title     = From
+              step      = 1
+              dependsOn = !every_slice
+              colspan   = 1
+            }
+            Field last_slice {
+              title     = To
+              step      = 1
+              dependsOn = !every_slice
+              colspan   = 1
+            }
+            Field every_slice {
+              title   = "All Slices"
+              colspan = 2
+              alignX  = Center
+            }
+          }  
+          Row {
+            Field data_type {
+              title   = "File Format"
+              colspan = 1
+              comboItems {
+                item TIFF {}
+                item PNG {}
+              }
+            }
+          }
+        }
+      }
+      Box "Export Image"
+      {
+        Horizontal 
+        {
+          ProgressBar export_progress {}
+          Button export_button { title = "Start Export" }       
+        }
+      }
+    }
+   
+  }  
+}
+
+

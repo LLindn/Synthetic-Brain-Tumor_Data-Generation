@@ -1,0 +1,213 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module ImageSave {
+  internal  {
+    frame = "593 657 96 80"
+    moduleGroupName = ""
+    showNetworkPanel = true
+    windows  {
+      window _default {
+        geometry = "767 379 504 580"
+        sizeHint = "484 580"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SaveMask
+    taskVerboseLogging = FALSE
+    filename = ""
+    format = TIFF
+    comment = MeVisLab
+    allowOverwrite = TRUE
+    autoFilename = FALSE
+    sourceName = ""
+    postfix = .result1
+    dicomNameUsed = TRUE
+    dicomMetaHeader = TRUE
+    dicomDerived = FALSE
+    dicomDerivedImageType = "OTHER\\MEVISLAB"
+    dicomDiscardTags = FrameSpecific
+    dicomStoreTimeInfo = None
+    dicomSetWindow = FALSE
+    dicomWindowCenter = 0
+    dicomWindowWidth = 0
+    dicomIgnoreHalfVoxelShift = FALSE
+    tiffCompression = None
+    tiffTileX = 128
+    tiffTileY = 128
+    tiffTileXAuto = TRUE
+    tiffTileYAuto = TRUE
+    saveDicomHeaderOnly = FALSE
+    pngCompression = Default
+    pngInterlaced = FALSE
+    jpegQuality = 75
+    jpegProgressive = FALSE
+  }
+}
+module SubImage {
+  internal  {
+    frame = "581 777 120 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "770 363 395 533"
+        sizeHint = "395 533"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SubImageMask
+    boxInput = "0 0 0 0 0 0 -1 -1 -1 -1 -1 -1"
+    autoApplyBox = FALSE
+    correctForNegativeSubImageExtents = FALSE
+    enableBoxClamping = FALSE
+    x = 0
+    sx = 32
+    modifyX = FALSE
+    y = 0
+    sy = 32
+    modifyY = FALSE
+    z = 259
+    sz = 1
+    modifyZ = TRUE
+    c = 0
+    sc = 1
+    modifyC = FALSE
+    t = 0
+    st = 1
+    modifyT = FALSE
+    u = 0
+    su = 1
+    modifyU = FALSE
+    fillValue = 0
+    mode = VoxelStartSize
+    autoApply = TRUE
+  }
+}
+module Info {
+  internal  {
+    frame = "753 745 80 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "685 442 564 375"
+        sizeHint = "564 375"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = InfoMask
+  }
+}
+module Info {
+  internal  {
+    frame = "217 737 96 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "685 442 564 375"
+        sizeHint = "564 375"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = InfoPatient
+  }
+}
+module SubImage {
+  internal  {
+    frame = "385 785 128 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "770 363 395 533"
+        sizeHint = "395 533"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SubImagePatient
+    boxInput = "0 0 0 0 0 0 -1 -1 -1 -1 -1 -1"
+    autoApplyBox = FALSE
+    correctForNegativeSubImageExtents = FALSE
+    enableBoxClamping = FALSE
+    x = 0
+    sx = 32
+    modifyX = FALSE
+    y = 0
+    sy = 32
+    modifyY = FALSE
+    z = 259
+    sz = 1
+    modifyZ = TRUE
+    c = 0
+    sc = 1
+    modifyC = FALSE
+    t = 0
+    st = 1
+    modifyT = FALSE
+    u = 0
+    su = 1
+    modifyU = FALSE
+    fillValue = 0
+    mode = VoxelStartSize
+    autoApply = TRUE
+  }
+}
+module ImageSave {
+  internal  {
+    frame = "401 665 96 80"
+    moduleGroupName = ""
+    showNetworkPanel = true
+    windows  {
+      window _default {
+        geometry = "767 379 504 580"
+        sizeHint = "484 580"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SavePatient
+    taskVerboseLogging = FALSE
+    filename = ""
+    format = TIFF
+    comment = MeVisLab
+    allowOverwrite = TRUE
+    autoFilename = FALSE
+    sourceName = ""
+    postfix = .result1
+    dicomNameUsed = TRUE
+    dicomMetaHeader = TRUE
+    dicomDerived = FALSE
+    dicomDerivedImageType = "OTHER\\MEVISLAB"
+    dicomDiscardTags = FrameSpecific
+    dicomStoreTimeInfo = None
+    dicomSetWindow = FALSE
+    dicomWindowCenter = 0
+    dicomWindowWidth = 0
+    dicomIgnoreHalfVoxelShift = FALSE
+    tiffCompression = None
+    tiffTileX = 128
+    tiffTileY = 128
+    tiffTileXAuto = TRUE
+    tiffTileYAuto = TRUE
+    saveDicomHeaderOnly = FALSE
+    pngCompression = Default
+    pngInterlaced = FALSE
+    jpegQuality = 75
+    jpegProgressive = FALSE
+  }
+}
+connections  {
+  SaveMask.input0 = SubImageMask.output0
+  SavePatient.input0 = SubImagePatient.output0
+}
+networkModel = ""

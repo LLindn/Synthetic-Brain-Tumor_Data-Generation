@@ -1,0 +1,247 @@
+// MDL v1 utf8
+network  {
+  watchlist = ""
+}
+module itkGradientImageFilter {
+  internal  {
+    frame = "1388 1034 152 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "810 364 316 426"
+        sizeHint = "316 426"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = itkGradientImageFilter
+    updateMode = AutoUpdate
+    applyMode = AutoApply
+    minValue = 0
+    maxValue = 337
+    applyMinMax = FALSE
+    autoSetMinMax = TRUE
+    clampOutImageValues = FALSE
+    lowerOutSideMode = MinValue
+    upperOutSideMode = MaxValue
+    lowerOutSideValue = 0
+    upperOutSideValue = 0
+    useImageSpacing = TRUE
+    useImageDirection = TRUE
+    coordinateTolerance = 1e-06
+    directionTolerance = 1e-06
+  }
+}
+module SoSphere {
+  internal  {
+    frame = "1640 1506 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "891 511 153 118"
+        sizeHint = "153 118"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoSphere
+    radius = 60
+    subdivision = 0
+  }
+}
+module SoSeparator {
+  internal  {
+    frame = "1568 1434 112 56"
+    moduleGroupName = ""
+    windows  {
+      window _viewer {
+        geometry = "748 586 400 400"
+        sizeHint = "400 400"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoSeparator
+    renderCaching = AUTO
+    boundingBoxCaching = AUTO
+    renderCulling = AUTO
+    pickCulling = AUTO
+  }
+}
+module SoTranslation {
+  internal  {
+    frame = "1520 1506 112 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "899 384 271 34"
+        sizeHint = "271 34"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = SoTranslation
+    translation = "39.7778167724609 3.31330108642578 41.7336807250977"
+  }
+}
+module Scale {
+  internal  {
+    frame = "1572 1138 136 72"
+    moduleGroupName = ""
+    showNetworkPanel = true
+    windows  {
+      window _default {
+        geometry = "850 402 235 337"
+        sizeHint = "235 337"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Scale
+    inputMin = 0
+    inputMax = 59.5987777709961
+    updateMode = AutoUpdateMinMaxOn
+    useTrueRange = TRUE
+    typeSelect = Automatic
+    outputMin = 0
+    outputMax = 1
+  }
+}
+module Arithmetic1 {
+  internal  {
+    frame = "1568 1038 176 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "826 538 358 74"
+        sizeHint = "355 74"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = AdjustDeformationStrength
+    function = Multiply
+    constant = 12
+  }
+}
+module VoxelizeInventorScene {
+  internal  {
+    frame = "1536 1342 160 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "904 237 397 475"
+        sizeHint = "381 365"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = VoxelizeTumor
+    allowCollectPoints = FALSE
+    allowCollectLines = FALSE
+    allowCollectTriangles = TRUE
+    voxelValue = 1
+    lineWidth = 0
+    useAntiAliasing = FALSE
+    copyInputImage = FALSE
+    drawStyleAsScene = TRUE
+    voxelizeFilled = TRUE
+    includeBorderOnFill = FALSE
+    fillColor = "0.207843137254902 0.207843137254902 0.207843137254902"
+    fillAlpha = 1
+    voxelizeSurface = TRUE
+    autoUpdateInvScene = TRUE
+    autoUpdateMLImage = TRUE
+    autoUpdateParameter = TRUE
+    distanceMode = WorldDistance
+    voxelizeColored = FALSE
+    showNumCollectedPrimitives = FALSE
+    useSuperSampling = FALSE
+  }
+}
+module Arithmetic2 {
+  internal  {
+    frame = "1536 934 96 64"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "745 523 446 109"
+        sizeHint = "446 109"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = Multiply
+    function = Multiply
+    outputImageSize = InvalidateOutputIfSizesDiffer
+    constant = 0
+    autoReplicate = FALSE
+  }
+}
+module ImageWarp {
+  internal  {
+    frame = "1520 826 96 56"
+    moduleGroupName = ""
+    windows  {
+      window _default {
+        geometry = "793 502 352 150"
+        sizeHint = "350 150"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = ImageWarp
+    coordinateSystem = Voxel
+    interpolationMode = Linear
+    displacementLimit = 30
+    autoUpdate = TRUE
+  }
+}
+module EuclideanDistanceTransform {
+  internal  {
+    frame = "1504 1250 224 56"
+    moduleGroupName = ""
+    showNetworkPanel = true
+    windows  {
+      window _default {
+        geometry = "1249 258 614 402"
+        sizeHint = "522 402"
+        wasOpen = no
+      }
+    }
+  }
+  fields  {
+    instanceName = EuclideanDistanceTransform
+    outputMode = DistanceOnly
+    distanceMode = ForegroundVoxelCenter
+    dtfPrecision = FloatPrecision
+    distanceScaling = 1
+    applyTime = OnRequest
+    dimension = 3D
+    minValue = 0
+    maxValue = 0
+    autoUpdateMode = AutoUpdate
+    autoUpdateTime = ImmediatelyOnInputChange
+  }
+}
+connections  {
+  itkGradientImageFilter.input0 = EuclideanDistanceTransform.output0
+  SoSeparator.children = "SoTranslation.self SoSphere.self"
+  Scale.input0 = EuclideanDistanceTransform.output0
+  AdjustDeformationStrength.input0 = Scale.output0
+  VoxelizeTumor.inInventorScene = SoSeparator.self
+  Multiply.input0 = itkGradientImageFilter.output0
+  Multiply.input1 = AdjustDeformationStrength.output0
+  ImageWarp.input1 = Multiply.output0
+  EuclideanDistanceTransform.input0 = VoxelizeTumor.output0
+}
+networkModel = ""
